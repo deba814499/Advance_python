@@ -1,0 +1,320 @@
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| amazon             |
+| college            |
+| customers          |
+| dab                |
+| database123        |
+| db1                |
+| db10               |
+| dbl                |
+| deba               |
+| flipkart           |
+| gietu              |
+| google             |
+| guru               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| student            |
+| sys                |
+| techhubdb          |
++--------------------+
+19 rows in set (0.19 sec)
+
+mysql> use gietu
+Database changed
+mysql> desc gietu;
++---------+---------------+------+-----+---------+-------+
+| Field   | Type          | Null | Key | Default | Extra |
++---------+---------------+------+-----+---------+-------+
+| rollno  | int           | NO   | PRI | NULL    |       |
+| name    | varchar(50)   | NO   |     | NULL    |       |
+| address | varchar(100)  | NO   |     | NULL    |       |
+| region  | varchar(50)   | NO   |     | NULL    |       |
+| salary  | decimal(10,2) | YES  |     | NULL    |       |
+| gender  | char(10)      | YES  |     | NULL    |       |
+| desig   | varchar(30)   | YES  |     | NULL    |       |
++---------+---------------+------+-----+---------+-------+
+7 rows in set (0.05 sec)
+
+mysql> select * from gietu;
++--------+--------+-------------+---------------+----------+--------+------------+
+| rollno | name   | address     | region        | salary   | gender | desig      |
++--------+--------+-------------+---------------+----------+--------+------------+
+|    101 | Rahul  | Bhubaneswar | Odisha        | 35000.00 | M      | Manager    |
+|    102 | Priya  | Cuttack     | Odisha        | 42000.00 | F      | Developer  |
+|    103 | Amit   | Patna       | Bihar         | 30000.00 | M      | Tester     |
+|    104 | Sneha  | Hyderabad   | Telangana     | 45000.00 | F      | HR         |
+|    105 | Arjun  | Ahmedabad   | Gujarat       | 38000.00 | M      | Analyst    |
+|    106 | Neha   | Lucknow     | Uttar Pradesh | 41000.00 | F      | Developer  |
+|    107 | Rohit  | Delhi       | Delhi         | 36000.00 | M      | Support    |
+|    108 | Anjali | Jaipur      | Rajasthan     | 39000.00 | F      | Designer   |
+|    109 | Vikram | Bangalore   | Karnataka     | 50000.00 | M      | TeamLead   |
+|    110 | Pooja  | Kochi       | Kerala        | 47000.00 | F      | Consultant |
++--------+--------+-------------+---------------+----------+--------+------------+
+10 rows in set (0.05 sec)
+
+mysql> select * from gietu where gender = 'F';
++--------+--------+-----------+---------------+----------+--------+------------+
+| rollno | name   | address   | region        | salary   | gender | desig      |
++--------+--------+-----------+---------------+----------+--------+------------+
+|    102 | Priya  | Cuttack   | Odisha        | 42000.00 | F      | Developer  |
+|    104 | Sneha  | Hyderabad | Telangana     | 45000.00 | F      | HR         |
+|    106 | Neha   | Lucknow   | Uttar Pradesh | 41000.00 | F      | Developer  |
+|    108 | Anjali | Jaipur    | Rajasthan     | 39000.00 | F      | Designer   |
+|    110 | Pooja  | Kochi     | Kerala        | 47000.00 | F      | Consultant |
++--------+--------+-----------+---------------+----------+--------+------------+
+5 rows in set (0.04 sec)
+
+mysql> select * from gietu where gender = 'M';
++--------+--------+-------------+-----------+----------+--------+----------+
+| rollno | name   | address     | region    | salary   | gender | desig    |
++--------+--------+-------------+-----------+----------+--------+----------+
+|    101 | Rahul  | Bhubaneswar | Odisha    | 35000.00 | M      | Manager  |
+|    103 | Amit   | Patna       | Bihar     | 30000.00 | M      | Tester   |
+|    105 | Arjun  | Ahmedabad   | Gujarat   | 38000.00 | M      | Analyst  |
+|    107 | Rohit  | Delhi       | Delhi     | 36000.00 | M      | Support  |
+|    109 | Vikram | Bangalore   | Karnataka | 50000.00 | M      | TeamLead |
++--------+--------+-------------+-----------+----------+--------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from gietu where region = 'Odisha';
++--------+-------+-------------+--------+----------+--------+-----------+
+| rollno | name  | address     | region | salary   | gender | desig     |
++--------+-------+-------------+--------+----------+--------+-----------+
+|    101 | Rahul | Bhubaneswar | Odisha | 35000.00 | M      | Manager   |
+|    102 | Priya | Cuttack     | Odisha | 42000.00 | F      | Developer |
++--------+-------+-------------+--------+----------+--------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from gietu;
++--------+--------+-------------+---------------+----------+--------+------------+
+| rollno | name   | address     | region        | salary   | gender | desig      |
++--------+--------+-------------+---------------+----------+--------+------------+
+|    101 | Rahul  | Bhubaneswar | Odisha        | 35000.00 | M      | Manager    |
+|    102 | Priya  | Cuttack     | Odisha        | 42000.00 | F      | Developer  |
+|    103 | Amit   | Patna       | Bihar         | 30000.00 | M      | Tester     |
+|    104 | Sneha  | Hyderabad   | Telangana     | 45000.00 | F      | HR         |
+|    105 | Arjun  | Ahmedabad   | Gujarat       | 38000.00 | M      | Analyst    |
+|    106 | Neha   | Lucknow     | Uttar Pradesh | 41000.00 | F      | Developer  |
+|    107 | Rohit  | Delhi       | Delhi         | 36000.00 | M      | Support    |
+|    108 | Anjali | Jaipur      | Rajasthan     | 39000.00 | F      | Designer   |
+|    109 | Vikram | Bangalore   | Karnataka     | 50000.00 | M      | TeamLead   |
+|    110 | Pooja  | Kochi       | Kerala        | 47000.00 | F      | Consultant |
++--------+--------+-------------+---------------+----------+--------+------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from gietu where name = 'Arjun';
++--------+-------+-----------+---------+----------+--------+---------+
+| rollno | name  | address   | region  | salary   | gender | desig   |
++--------+-------+-----------+---------+----------+--------+---------+
+|    105 | Arjun | Ahmedabad | Gujarat | 38000.00 | M      | Analyst |
++--------+-------+-----------+---------+----------+--------+---------+
+1 row in set (0.00 sec)
+
+mysql> select * from gietu where name = 'Pooja';
++--------+-------+---------+--------+----------+--------+------------+
+| rollno | name  | address | region | salary   | gender | desig      |
++--------+-------+---------+--------+----------+--------+------------+
+|    110 | Pooja | Kochi   | Kerala | 47000.00 | F      | Consultant |
++--------+-------+---------+--------+----------+--------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from gietu where name = 'Neha'
+    -> ;
++--------+------+---------+---------------+----------+--------+-----------+
+| rollno | name | address | region        | salary   | gender | desig     |
++--------+------+---------+---------------+----------+--------+-----------+
+|    106 | Neha | Lucknow | Uttar Pradesh | 41000.00 | F      | Developer |
++--------+------+---------+---------------+----------+--------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select * from student where name = 'Pooja';
+ERROR 1146 (42S02): Table 'gietu.student' doesn't exist
+mysql> select * from gietu where name = 'Neha';
++--------+------+---------+---------------+----------+--------+-----------+
+| rollno | name | address | region        | salary   | gender | desig     |
++--------+------+---------+---------------+----------+--------+-----------+
+|    106 | Neha | Lucknow | Uttar Pradesh | 41000.00 | F      | Developer |
++--------+------+---------+---------------+----------+--------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select name from gietu;
++--------+
+| name   |
++--------+
+| Rahul  |
+| Priya  |
+| Amit   |
+| Sneha  |
+| Arjun  |
+| Neha   |
+| Rohit  |
+| Anjali |
+| Vikram |
+| Pooja  |
++--------+
+10 rows in set (0.00 sec)
+
+mysql> select name,address from gietu;
++--------+-------------+
+| name   | address     |
++--------+-------------+
+| Rahul  | Bhubaneswar |
+| Priya  | Cuttack     |
+| Amit   | Patna       |
+| Sneha  | Hyderabad   |
+| Arjun  | Ahmedabad   |
+| Neha   | Lucknow     |
+| Rohit  | Delhi       |
+| Anjali | Jaipur      |
+| Vikram | Bangalore   |
+| Pooja  | Kochi       |
++--------+-------------+
+10 rows in set (0.00 sec)
+
+mysql> select roll,salary from gietu;
+ERROR 1054 (42S22): Unknown column 'roll' in 'field list'
+mysql> select rollno,address from gietu;
++--------+-------------+
+| rollno | address     |
++--------+-------------+
+|    101 | Bhubaneswar |
+|    102 | Cuttack     |
+|    103 | Patna       |
+|    104 | Hyderabad   |
+|    105 | Ahmedabad   |
+|    106 | Lucknow     |
+|    107 | Delhi       |
+|    108 | Jaipur      |
+|    109 | Bangalore   |
+|    110 | Kochi       |
++--------+-------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from gietu where name = 'Aman';
+Empty set (0.00 sec)
+
+mysql> select * from gietu where address = 'Delhi';
++--------+-------+---------+--------+----------+--------+---------+
+| rollno | name  | address | region | salary   | gender | desig   |
++--------+-------+---------+--------+----------+--------+---------+
+|    107 | Rohit | Delhi   | Delhi  | 36000.00 | M      | Support |
++--------+-------+---------+--------+----------+--------+---------+
+1 row in set (0.00 sec)
+
+mysql> select * from gietu where gender = 'M';
++--------+--------+-------------+-----------+----------+--------+----------+
+| rollno | name   | address     | region    | salary   | gender | desig    |
++--------+--------+-------------+-----------+----------+--------+----------+
+|    101 | Rahul  | Bhubaneswar | Odisha    | 35000.00 | M      | Manager  |
+|    103 | Amit   | Patna       | Bihar     | 30000.00 | M      | Tester   |
+|    105 | Arjun  | Ahmedabad   | Gujarat   | 38000.00 | M      | Analyst  |
+|    107 | Rohit  | Delhi       | Delhi     | 36000.00 | M      | Support  |
+|    109 | Vikram | Bangalore   | Karnataka | 50000.00 | M      | TeamLead |
++--------+--------+-------------+-----------+----------+--------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from gietu where desig ='Doctor';
+Empty set (0.00 sec)
+
+mysql> select * from gietu where salary == 15000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '== 15000' at line 1
+mysql> select * from gietu where salary = 15000;
+Empty set (0.03 sec)
+
+mysql> SELECT * FROM gietu
+    -> WHERE salary < 30000;
+Empty set (0.04 sec)
+
+mysql> SELECT * FROM gietu
+    -> WHERE gender='F' OR address='Raipur';
++--------+--------+-----------+---------------+----------+--------+------------+
+| rollno | name   | address   | region        | salary   | gender | desig      |
++--------+--------+-----------+---------------+----------+--------+------------+
+|    102 | Priya  | Cuttack   | Odisha        | 42000.00 | F      | Developer  |
+|    104 | Sneha  | Hyderabad | Telangana     | 45000.00 | F      | HR         |
+|    106 | Neha   | Lucknow   | Uttar Pradesh | 41000.00 | F      | Developer  |
+|    108 | Anjali | Jaipur    | Rajasthan     | 39000.00 | F      | Designer   |
+|    110 | Pooja  | Kochi     | Kerala        | 47000.00 | F      | Consultant |
++--------+--------+-----------+---------------+----------+--------+------------+
+5 rows in set (0.03 sec)
+
+mysql> SELECT * FROM gietu
+    -> WHERE gender='F' OR address='Raipur';
++--------+--------+-----------+---------------+----------+--------+------------+
+| rollno | name   | address   | region        | salary   | gender | desig      |
++--------+--------+-----------+---------------+----------+--------+------------+
+|    102 | Priya  | Cuttack   | Odisha        | 42000.00 | F      | Developer  |
+|    104 | Sneha  | Hyderabad | Telangana     | 45000.00 | F      | HR         |
+|    106 | Neha   | Lucknow   | Uttar Pradesh | 41000.00 | F      | Developer  |
+|    108 | Anjali | Jaipur    | Rajasthan     | 39000.00 | F      | Designer   |
+|    110 | Pooja  | Kochi     | Kerala        | 47000.00 | F      | Consultant |
++--------+--------+-----------+---------------+----------+--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM gietu
+    -> WHERE name LIKE 'a%';
++--------+--------+-----------+-----------+----------+--------+----------+
+| rollno | name   | address   | region    | salary   | gender | desig    |
++--------+--------+-----------+-----------+----------+--------+----------+
+|    103 | Amit   | Patna     | Bihar     | 30000.00 | M      | Tester   |
+|    105 | Arjun  | Ahmedabad | Gujarat   | 38000.00 | M      | Analyst  |
+|    108 | Anjali | Jaipur    | Rajasthan | 39000.00 | F      | Designer |
++--------+--------+-----------+-----------+----------+--------+----------+
+3 rows in set (0.04 sec)
+
+mysql> SELECT * FROM gietu
+    -> WHERE name LIKE '%h';
+Empty set (0.00 sec)
+
+mysql>
+mysql> SELECT * FROM gietu
+    -> WHERE address LIKE '%pur%';
++--------+--------+---------+-----------+----------+--------+----------+
+| rollno | name   | address | region    | salary   | gender | desig    |
++--------+--------+---------+-----------+----------+--------+----------+
+|    108 | Anjali | Jaipur  | Rajasthan | 39000.00 | F      | Designer |
++--------+--------+---------+-----------+----------+--------+----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM gietu
+    -> ORDER BY salary DESC;
++--------+--------+-------------+---------------+----------+--------+------------+
+| rollno | name   | address     | region        | salary   | gender | desig      |
++--------+--------+-------------+---------------+----------+--------+------------+
+|    109 | Vikram | Bangalore   | Karnataka     | 50000.00 | M      | TeamLead   |
+|    110 | Pooja  | Kochi       | Kerala        | 47000.00 | F      | Consultant |
+|    104 | Sneha  | Hyderabad   | Telangana     | 45000.00 | F      | HR         |
+|    102 | Priya  | Cuttack     | Odisha        | 42000.00 | F      | Developer  |
+|    106 | Neha   | Lucknow     | Uttar Pradesh | 41000.00 | F      | Developer  |
+|    108 | Anjali | Jaipur      | Rajasthan     | 39000.00 | F      | Designer   |
+|    105 | Arjun  | Ahmedabad   | Gujarat       | 38000.00 | M      | Analyst    |
+|    107 | Rohit  | Delhi       | Delhi         | 36000.00 | M      | Support    |
+|    101 | Rahul  | Bhubaneswar | Odisha        | 35000.00 | M      | Manager    |
+|    103 | Amit   | Patna       | Bihar         | 30000.00 | M      | Tester     |
++--------+--------+-------------+---------------+----------+--------+------------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(*) FROM gietu;
++----------+
+| COUNT(*) |
++----------+
+|       10 |
++----------+
+1 row in set (0.07 sec)
+
+mysql> SELECT COUNT(*) FROM gietu
+    -> WHERE gender='M';
++----------+
+| COUNT(*) |
++----------+
+|        5 |
++----------+
+1 row in set (0.03 sec)
+
+mysql>
